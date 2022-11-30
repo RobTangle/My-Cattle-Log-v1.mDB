@@ -1,6 +1,9 @@
 # My Cattle Log - Livestock App
 
-Repository meant to be just a practice exercise through the creation of a CRUD full-stack app with OAuth2.0 incorporated.
+My Cattle Log is an application that is meant to be used by farmers who want to keep a record of their cattle status.
+By loging in to the application with their google, apple, linkedin, or personal email, they can update information about their animals: Date of birth, SENASA ID, Tracking device and number, if the animal is pregnant, male or female, age, images, comments, etc.
+Also, My Cattle Log will automáticly produce statistics of the records uploaded, sorting and ordering the cattle in different catogories with instants access to any animal detail.
+In the profile component, the user can create personal notes to register any relevant information that they wanna save in one place, accesible to them all the time.
 
 ## How to run the front-end:
 

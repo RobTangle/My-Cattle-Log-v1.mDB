@@ -2,6 +2,8 @@ import morgan from "morgan";
 import helmet from "helmet";
 import express from "express";
 import cors from "cors";
+import { Response } from "express";
+import { Request as JWTRequest } from "express-jwt";
 
 import userRouter from "./routes/user/user-routes";
 import animalRouter from "./routes/animal/animal-routes";
@@ -23,15 +25,15 @@ app.use("/user", userRouter);
 app.use("/note", noteRouter);
 
 // for testing:
-app.get("/ping", (req, res) => {
+app.get("/ping", (req, res: Response) => {
   return res.send("PONG!");
 });
 
-app.get("/auth", jwtCheck, (req: any, res) => {
+app.get("/auth", jwtCheck, (req: JWTRequest, res: Response) => {
   try {
     console.log(`En /auth`);
     console.log(req.auth);
-    return res.send(`Tu id de usuario es ${req.auth.sub}`);
+    return res.send({ yourJWT: req.auth });
   } catch (error: any) {
     return res.status(400).send({ error: error.message });
   }

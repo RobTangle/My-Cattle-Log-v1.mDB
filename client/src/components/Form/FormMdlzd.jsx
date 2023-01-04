@@ -73,9 +73,9 @@ export function FormMdlzd({ closeModal, animal }) {
   let handleSubmit; // Esta variable va a tomar el valor de una de dos funciones... para crear nuevo animal o para editar animal.
 
   if (!animal) {
-    console.log(
-      `No se detectó un animal por props. Se asume que es formulario para creación de nuevo animal...`
-    );
+    // console.log(
+    //   `No se detectó un animal por props. Se asume que es formulario para creación de nuevo animal...`
+    // );
     formAdaptativeTitle = "Nuevo animal";
     formAdaptativeSubmitButton = "Registrar animal";
 

@@ -115,7 +115,10 @@ async function handleUpdateNoteRequest(req, res) {
             msg: "",
         };
         const validatedNote = (0, note_validators_1.validateNewNoteMDB)(req.body);
-        let noteInDB = await mongoDB_1.Note.findByIdAndUpdate(noteId, validatedNote);
+        let noteInDB = await mongoDB_1.Note.findByIdAndUpdate(noteId, validatedNote, {
+            runValidators: true,
+            sanitizeFilter: true,
+        }).exec();
         if (noteInDB) {
             response.noteInDB++;
             response.total++;

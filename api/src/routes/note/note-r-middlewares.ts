@@ -119,7 +119,10 @@ export async function handleUpdateNoteRequest(req: JWTRequest, res: Response) {
     };
     const validatedNote: INote = validateNewNoteMDB(req.body);
 
-    let noteInDB = await Note.findByIdAndUpdate(noteId, validatedNote);
+    let noteInDB = await Note.findByIdAndUpdate(noteId, validatedNote, {
+      runValidators: true,
+      sanitizeFilter: true,
+    }).exec();
     if (noteInDB) {
       response.noteInDB++;
       response.total++;

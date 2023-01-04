@@ -121,6 +121,16 @@ function isTypeofNumber(argumento) {
 exports.isTypeofNumber = isTypeofNumber;
 //IS EMAIL :
 function isEmail(argumento) {
+    if (!argumento) {
+        return false;
+    }
+    if (typeof argumento !== "string") {
+        return false;
+    }
+    if (argumento.length > 100) {
+        console.log("Error en val fn isEmail. El argumento tiene más de 100 caracteres.");
+        throw new Error("El argumento ingresado tiene más de 100 caracteres.");
+    }
     let regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|\"([]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(.[!#-'*+/-9=?A-Z^-~-]+)*|[[\t -Z^-~]*])");
     return regex.test(argumento);
 }
@@ -141,6 +151,10 @@ function isValidURLImage(argumento) {
 exports.isValidURLImage = isValidURLImage;
 // STRING CONTAINS URLS :
 function stringContainsURLs(argumento) {
+    if (typeof argumento !== "string") {
+        console.log("Error en val fn stringContainsURLs");
+        throw new Error("El argumento ingresado no es una cadena de texto");
+    }
     if (argumento.length > 1000) {
         console.log("Error en fn val stringContainsURLs: El argumento es demasiado largo.");
         throw new Error("El argumento es demasiado largo.");

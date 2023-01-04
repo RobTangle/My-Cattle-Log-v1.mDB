@@ -172,7 +172,7 @@ async function handleUpdateAnimalRequest(req, res) {
             await userInDB.save();
             response.userAnimals++;
         }
-        const animalInCollection = await mongoDB_1.Animal.findById(validatedAnimal._id);
+        const animalInCollection = await mongoDB_1.Animal.findById(validatedAnimal._id, {}, { sanitizeFilter: true });
         if (animalInCollection !== null) {
             animalInCollection.type_of_animal = validatedAnimal.type_of_animal;
             animalInCollection.breed_name = validatedAnimal.breed_name;

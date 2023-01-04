@@ -31,7 +31,7 @@ app.get("/auth", jwtMiddleware_1.default, (req, res) => {
     try {
         console.log(`En /auth`);
         console.log(req.auth);
-        return res.send(`Tu id de usuario es ${req.auth.sub}`);
+        return res.send({ yourJWT: req.auth });
     }
     catch (error) {
         return res.status(400).send({ error: error.message });

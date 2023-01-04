@@ -43,8 +43,8 @@ export function calculateAge(birthday) {
   let n = Date.now();
   let d = new Date(birthday);
   let age = n - d;
-  console.log("age = ", age);
-  console.log(getYears(age));
+  // console.log("age = ", age);
+  // console.log(getYears(age));
   let yearsOld = getYears(age);
   return yearsOld.toFixed(1);
   // return age.toFixed(1);
